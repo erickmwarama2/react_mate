@@ -35,14 +35,16 @@ function App() {
       </div>
       <h1>Task List</h1>
       <ul>
-        {tasks.map(({ id, name, completed }) => (
-          <li key={id}>
-            <span>
-              {id} - {name}
-            </span>
-            <button onClick={() => handleDelete(id)}>Delete</button>
-          </li>
-        ))}
+        {tasks.map(({ id, name, completed }) =>
+          !completed ? (
+            <li key={id}>
+              <span>
+                {id} - {name}
+              </span>
+              <button onClick={() => handleDelete(id)}>Delete</button>
+            </li>
+          ) : null
+        )}
       </ul>
     </div>
   );
